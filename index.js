@@ -11,14 +11,19 @@ const start = async () => {
     const message = msg.text
 
     if (message === '/start') {
-      return await bot.sendMessage(msg.chat.id, 'Hi, this bot will help you download videos without a watermark from TikTok. First, send a link to the video.')
+      return await bot.sendMessage(msg.chat.id, 'Halo! gw bisa download video tiktok no wm loh! kirimin gw link nya nanti gw download.')
     }
+    
+    if (message === '/donate') {
+      return await bot.sendMessage(msg.chat.id, '(USD)https://ko-fi.com/xdf54 (IDR) https://saweria.co/Xdf54')
+    }
+
 
     if (message.match('https:\\/\\/[a-zA-Z]+\\.tiktok\\.com\\/')) {
       const resp = await TikTokDownloader.downloadVideo(message)
       return await bot.sendVideo(chatId, resp)
     } else {
-      return await bot.sendMessage(chatId, 'The url is incorrect, please try again.')
+      return await bot.sendMessage(chatId, 'Link nya salah banh,kirim link yang bener banh.')
     }
   })
 }
